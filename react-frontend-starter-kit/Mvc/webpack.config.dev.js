@@ -1,0 +1,94 @@
+import webpack from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import path from 'path';
+import {entry} from './tools/config.entry';
+
+export default {
+  resolve: {
+      extensions: ['*', '.js', '.jsx', '.json']
+  },
+  mode: 'development',
+  entry,
+  output: {
+      path: path.resolve(__dirname, '../Mvc.Bundle'), // Note: Physical files are only output by the production build task `npm run build`.
+      filename: '[name].bundle.js',
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
+  },
+  devtool: 'source-map',
+  plugins: [
+    // new HardSourceWebpackPlugin(), Node verion >= 8
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
+    new HtmlWebpackPlugin({     // Create HTML file that includes references to bundled CSS and JS.
+      template: 'Templates/index.ejs',
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true
+      },
+      inject: true
+    })
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: ['babel-loader']
+      },
+      {
+        test: /(\.css|\.scss|\.sass)$/,
+        use: [
+           'style-loader',
+           {
+             loader: 'css-loader',
+             options: {
+               sourceMap: true
+             }
+           }, {
+             loader: 'postcss-loader',
+             options: {
+               plugins: () => [
+                 require('autoprefixer')
+               ],
+               sourceMap: true
+             }
+           }, {
+             loader: 'sass-loader',
+             options: {
+               includePaths: [path.resolve(__dirname, 'Styles')],
+               sourceMap: true
+             }
+           }
+         ]
+       },
+       {
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+              mimetype: 'image/svg+xml',
+              name: '[name].[ext]'
+            }
+          },
+        ]
+      },
+      {
+        test: /\.(jpe?g|png|gif|ico)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'Assets/Images/[name].[ext]',
+            }
+          }
+        ]
+      },
+    ]
+  },
+}

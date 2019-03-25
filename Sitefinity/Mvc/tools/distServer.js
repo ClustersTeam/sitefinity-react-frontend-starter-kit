@@ -16,7 +16,7 @@ browserSync({
     port: 4001
   },
   server: {
-    baseDir: '../Mvc.Bundle'
+    baseDir: '../Mvc_Bundle'
   },
 
   files: [

@@ -36,9 +36,9 @@
             --- Images
             --- Fonts
 ```
-### Compiled files goes in the created by the build destination folder "MVC.Bundle"
+### Compiled files goes in the created by the build destination folder "Mvc_Bundle"
 ```
-    MVC.Bundle || ResourcePackages/ProjectName.Bundle
+    Mvc_Bundle || ResourcePackages/ProjectName.Bundle
         -- Scripts
             --- Navigation
                 ui-navigation.bundle.js

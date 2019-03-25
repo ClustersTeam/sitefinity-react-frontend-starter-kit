@@ -10,7 +10,7 @@ export default {
   mode: 'development',
   entry,
   output: {
-      path: path.resolve(__dirname, '../Mvc.Bundle'), // Note: Physical files are only output by the production build task `npm run build`.
+      path: path.resolve(__dirname, '../Mvc_Bundle'), // Note: Physical files are only output by the production build task `npm run build`.
       filename: '[name].bundle.js',
   },
   optimization: {

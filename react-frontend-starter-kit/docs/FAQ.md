@@ -30,29 +30,25 @@ Unfortunately, scripts in package.json can't be commented inline because the JSO
 ├── .istanbul.yml             # Configure istanbul code coverage
 ├── .npmrc                    # Configures npm to save exact by default
 ├── README.md                 # This file.
-├── dist                      # Folder where the build script places the built app. Use this in prod.
-├── package.json              # Package configuration. The list of 3rd party libraries and utilities
-├── src                       # Source code
-│   ├── actions               # Flux/Redux actions. List of distinct actions that can occur in the app.
-│   ├── components            # React components
-│      ├── containers         # Top-level React components that interact with Redux
-│   ├── constants             # Application constants including constants for Redux
+├── MVC_Bundle                # Folder where the build script places the built app. Use this in prod.
+├── MVC/package.json          # Package configuration. The list of 3rd party libraries and utilities
+├── MVC                       # Source code
+│   ├── Scripts/Actions               # Flux/Redux actions. List of distinct actions that can occur in the app.
+│   ├── Scripts/ComponentName         # React components
+│               ├── Components        # Top-level React components that interact with Redux
+|               ├── Reducers          # Redux reducers. Your state is altered here based on actions
+│   ├── Constants             # Application constants including constants for Redux
 │   ├── favicon.ico           # favicon to keep your browser from throwing a 404 during dev. Not actually used in prod build.
-│   ├── index.ejs             # Template for homepage
-│   ├── index.js              # Entry point for your app
-│   ├── reducers              # Redux reducers. Your state is altered here based on actions
-│   ├── store                 # Redux store configuration
-│   ├── styles                # CSS Styles, typically written in Sass
-│   └── utils                 # Plain old JS objects (POJOs). Pure logic. No framework specific code here.
+│   ├── Templates/index.ejs   # Template for homepage
+│   ├── Styles                # CSS Styles, typically written in Sass
+│   └── Utils                 # Plain old JS objects (POJOs). Pure logic. No framework specific code here.
 ├── tools                     # Node scripts that run build related tools
 │   └── analyzeBundle.js      # Analyzes the webpack bundle
 │   ├── assetsTransformer.js  # Fix for jest handling static assets like 
-React 
-│   ├── build.js              # Runs the production build
+|   ├── build.js              # Runs the production build
 │   ├── chalkConfig.js        # Centralized configuration for chalk (adds color to console statements)
 │   ├── distServer.js         # Starts webserver and opens final built app that's in dist in your default browser
 │   ├── nodeVersionCheck.js   # Confirm supported Node version is installed
-│   ├── removeDemo.js         # Remove demo app
 │   ├── srcServer.js          # Starts dev webserver with hot reloading and opens your app in your default browser
 │   ├── startMessage.js       # Display message when development build starts
 │   ├── testCi.js             # Configure Jest to run on a CI server

@@ -24,13 +24,23 @@ export default {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({     // Create HTML file that includes references to bundled CSS and JS.
+      // index will be your homepage
       template: 'Templates/index.ejs',
       minify: {
         removeComments: true,
         collapseWhitespace: true
       },
       inject: true
-    })
+    }),
+    new HtmlWebpackPlugin({  // Also generate a test.html
+      template: 'Templates/image.ejs',
+      filename: 'Templates/image.html',
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true
+      },
+      inject: true
+    }),
   ],
   module: {
     rules: [

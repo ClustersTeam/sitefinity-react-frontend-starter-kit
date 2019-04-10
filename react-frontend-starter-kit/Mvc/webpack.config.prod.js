@@ -23,6 +23,7 @@ export default {
     // Generate HTML file that contains references to generated bundles. See here for how this works: https://github.com/ampedandwired/html-webpack-plugin#basic-usage
     new HtmlWebpackPlugin({
       template: 'Templates/index.ejs',
+      // index will be your homepage
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -38,6 +39,24 @@ export default {
       inject: true,
       // Note that you can add custom options here if you need to handle other custom logic in index.html
       // To track JavaScript errors via TrackJS, sign up for a free trial at TrackJS.com and enter your token below.
+      trackJSToken: ''
+    }),
+    new HtmlWebpackPlugin({  // Also generate a test.html
+      template: 'Templates/image.ejs',
+      filename: 'Templates/image.html',
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        keepClosingSlash: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true
+      },
+      inject: true,
       trackJSToken: ''
     }),
 

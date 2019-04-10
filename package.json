@@ -1,0 +1,17 @@
+{
+    "name": "@tekacharova/sitefinity-react-frontend-starter-kit",
+    "version": "2.0.0",
+    "description": "Sitefinity React frontender starter kit npm package",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ClustersTeam/sitefinity-react-frontend-starter-kit"
+      },
+      "keywords": [],
+      "author": "Teodora Kacharova <https://www.npmjs.com/settings/tekacharova> <https://github.com/tekacharova>",
+      "license": "MIT",
+      "bugs": {
+        "url": "https://github.com/ClustersTeam/sitefinity-react-frontend-starter-kit/issues"
+      },
+      "homepage": "https://github.com/ClustersTeam/sitefinity-react-frontend-starter-kit#readme"
+}
